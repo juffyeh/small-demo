@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <!--<img width="400" src="http://img05.tooopen.com/images/20140828/sy_69792637411.jpg">
+    <article>
+        <h2>标题</h2>
+        <p>段落</p>
+        <p>段落</p>
+    </article>
+    <article>
+        <h2>标题</h2>
+        <p>段落</p>
+        <p>段落</p>
+    </article>-->
+    <script src="dom.js"></script>
+    <script>
+        // var div1 = dom.create('div','hello')
+        // var div2 = dom.create('div',dom.create('span','ok'))
+        // var div3 = dom.create('div',[dom.create('span'),dom.create('span')])
+        // var div4 = dom.create('div',['1',dom.create('span'),'3'])
+        var div5 = dom.create('div',[
+            dom.create('img',null,{
+                width: 400,
+                src: 'http://img05.tooopen.com/images/20140828/sy_69792637411.jpg' 
+            }),
+            dom.create('article',[
+                    dom.create('h2','标题'),dom.create('p','段落'),dom.create('p','段落')
+                ]),
+            dom.create('article',[
+                    dom.create('h2','标题'),dom.create('p','段落'),dom.create('p','段落')
+                ])
+        ])
+        document.body.appendChild(div5)
+    </script>
+</body>
+</html>

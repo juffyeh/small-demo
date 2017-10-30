@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<style type="text/css">
+    #numbers{
+        border: 1px solid red;
+        padding: 20px;
+    }
+    #numbers > li{
+        border: 1px solid green;
+    }
+    #numbers > li span{
+        border: 1px solid black;
+    }
+</style>
+<body>
+    <button id="take">取号</button>
+    <ol id='numbers'>
+
+    </ol>
+    <script>
+        take.addEventListener('click',function(){
+            let number = parseInt(Math.random() * 100, 10)
+            let li = document.createElement('li')
+            let span = document.createElement('span')
+            span.textContent = number
+            li.appendChild(span)
+            numbers.appendChild(li)
+        })
+        numbers.addEventListener('click',function(e){
+            let userclick = e.target
+            while(userclick.tagName !== 'LI'){
+                if(userclick === numbers){
+                    userclick = null
+                    break
+                }
+                userclick = userclick.parentNode
+            }
+            console.log(userclick)
+            userclick && userclick.remove()
+        })
+    </script>
+</body>
+</html>

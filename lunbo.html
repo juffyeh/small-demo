@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<style type="text/css">
+    *{margin: 0;padding: 0;box-sizing: border-box;}
+    ol,ul{list-style: none;}
+    .box{
+        width: 500px;
+        height: 300px;
+        margin: 50px auto;
+        border: 1px solid black;
+        position: relative;
+    }
+    .banner{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        animation: transform 2s;
+    }
+    .banner > li{
+        width: 100%;
+        height: 100%;
+        flex-shrink: 0;
+        border: 1px solid red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .list{
+        position: absolute;
+        bottom: 20px;
+        left:50%;
+        width: 60%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .list > li{
+        width: 25px;
+        height: 10px;
+        background: #999999;
+        border: 1px solid black;
+    }
+    .list > li.active{
+        background: yellow;
+    }
+</style>
+<body>
+<div class="box">
+    <ol class="banner">
+        <li style="background:black;">1</li>
+        <li style="background:green;">2</li>
+        <li style="background:yellow;">3</li>
+        <li style="background:red;">4</li>
+    </ol>
+    <ol class="list">
+        <li class="active"></li>
+        <li ></li>
+        <li></li>
+        <li></li>
+    </ol>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $('.box .list > li').mouseover(function(e){
+            let $li = $(e.currentTarget)
+            let index = $li.index()
+            $li.addClass('active').siblings().removeClass('active')
+
+            let width = $('.banner').width()
+            $('.box .banner>li').css({
+                transform: 'translateX(' + (-width*index) + 'px)'
+            })
+        //     let current = 0
+        //     setInterval(function(){
+        //         let i = current + 1
+        //         if(i === 4){
+        //             i = 0
+        //         }
+        //         $('.box .list > li').eq(i+1-1).trigger('mouseover')
+        //         current = i
+        //     },2000)
+        })
+    </script>
+</div>
+</body>
+</html>
